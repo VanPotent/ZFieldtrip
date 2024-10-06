@@ -1,0 +1,11 @@
+while wait(0.1) do -- Added a 0.1-second wait to prevent rapid firing of the function
+    for _, player in pairs(game.Players:GetPlayers()) do
+        local args = {
+            [1] = "HEAL_PLAYER",
+            [2] = player,
+            [3] = 100000000000000 -- Setting a rizzful, reasonable value
+        }
+
+        game:GetService("ReplicatedStorage").NetworkEvents.RemoteFunction:InvokeServer(unpack(args))
+    end
+end
